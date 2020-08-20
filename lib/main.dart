@@ -32,6 +32,8 @@ class _HomeScreenState extends State<HomeScreen> {
               Padding(
                 padding: const EdgeInsets.all(15.0),
                 child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -146,11 +148,331 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ),
 
+                    SizedBox(height: 10,),
+
+                    SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: <Widget>[
+                              Text(
+                                '02', style: TextStyle(
+                                  color: Colors.black, fontSize: 15, fontWeight: FontWeight.normal, height: 1.5
+                              ),
+                              ),
+
+                              Text(
+                                'Mon', style: TextStyle(
+                                  color: Colors.black, fontSize: 15, fontWeight: FontWeight.normal, height: 1.5
+                              ),
+                              ),
+                            ],
+                          ),
+
+                          Padding(
+                            padding: const EdgeInsets.only(left: 20.0),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: <Widget>[
+                                Text(
+                                  '03', style: TextStyle(
+                                    color: Colors.black, fontSize: 15, fontWeight: FontWeight.normal, height: 1.5
+                                ),
+                                ),
+
+                                Text(
+                                  'Tue', style: TextStyle(
+                                    color: Colors.black, fontSize: 15, fontWeight: FontWeight.normal, height: 1.5
+                                ),
+                                ),
+                              ],
+                            ),
+                          ),
+
+                          Padding(
+                            padding: const EdgeInsets.only(left: 20.0),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: <Widget>[
+                                Text(
+                                  '04', style: TextStyle(
+                                    color: Colors.black, fontSize: 15, fontWeight: FontWeight.normal, height: 1.5
+                                ),
+                                ),
+
+                                Text(
+                                  'Wed', style: TextStyle(
+                                    color: Colors.black, fontSize: 15, fontWeight: FontWeight.normal, height: 1.5
+                                ),
+                                ),
+                              ],
+                            ),
+                          ),
+
+                          Center(
+                            child: Padding(
+                              padding: const EdgeInsets.only(left: 20.0),
+                              child: Card(
+                                elevation: 2,
+                                color: Color.fromARGB(255, 21, 179, 244),
+                                child: Padding(
+                                  padding: const EdgeInsets.all(10.0),
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    crossAxisAlignment: CrossAxisAlignment.center,
+                                    children: <Widget>[
+                                      Text(
+                                        '05', style: TextStyle(
+                                          color: Colors.white, fontSize: 15, fontWeight: FontWeight.normal, height: 1.5
+                                      ),
+                                      ),
+
+                                      Text(
+                                        'Thu', style: TextStyle(
+                                          color: Colors.white, fontSize: 15, fontWeight: FontWeight.normal, height: 1.5
+                                      ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+
+                          Padding(
+                            padding: const EdgeInsets.only(left: 20.0),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: <Widget>[
+                                Text(
+                                  '06', style: TextStyle(
+                                    color: Colors.black, fontSize: 15, fontWeight: FontWeight.normal, height: 1.5
+                                ),
+                                ),
+
+                                Text(
+                                  'Fri', style: TextStyle(
+                                    color: Colors.black, fontSize: 15, fontWeight: FontWeight.normal, height: 1.5
+                                ),
+                                ),
+                              ],
+                            ),
+                          ),
+
+                          Padding(
+                            padding: const EdgeInsets.only(left: 20.0),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: <Widget>[
+                                Text(
+                                  '07', style: TextStyle(
+                                    color: Colors.black, fontSize: 15, fontWeight: FontWeight.normal, height: 1.5
+                                ),
+                                ),
+
+                                Text(
+                                  'Sat', style: TextStyle(
+                                    color: Colors.black, fontSize: 15, fontWeight: FontWeight.normal, height: 1.5
+                                ),
+                                ),
+                              ],
+                            ),
+                          ),
+
+                          Padding(
+                            padding: const EdgeInsets.only(left: 20.0),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: <Widget>[
+                                Text(
+                                  '08', style: TextStyle(
+                                    color: Colors.black, fontSize: 15, fontWeight: FontWeight.normal, height: 1.5
+                                ),
+                                ),
+
+                                Text(
+                                  'Sun', style: TextStyle(
+                                    color: Colors.black, fontSize: 15, fontWeight: FontWeight.normal, height: 1.5
+                                ),
+                                ),
+                              ],
+                            ),
+                          ),
+
+                        ],
+                      ),
+                    ),
+
+                    SizedBox(height: 10,),
+
+                    Text(
+                      'In Morning', style: TextStyle(
+                        color: Colors.black, fontSize: 18, fontWeight: FontWeight.w600, height: 1.5
+                    ),),
+
+                    SizedBox(height: 10,),
+
+                    SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+
+                          SizedBox(
+                            height: 150,
+                            width: 170,
+                            child: Card(
+                              elevation: 1,
+                              child: Padding(
+                                padding: const EdgeInsets.all(12.0),
+                                child: Center(
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: <Widget>[
+                                      Text(
+                                        'Aspirin', style: TextStyle(
+                                          color: Colors.black, fontSize: 18, fontWeight: FontWeight.w500, height: 1.5
+                                      ),),
+
+                                      Text(
+                                        '1 Pill • 100 mg', style: TextStyle(
+                                          color: Colors.grey, fontSize: 15, fontWeight: FontWeight.normal, height: 1.5
+                                      ),),
+
+                                      Padding(
+                                        padding: const EdgeInsets.only(top: 25.0),
+                                        child: Row(
+                                          children: <Widget>[
+                                            Icon(Icons.check_circle, color: Color.fromARGB(255, 21, 179, 244),),
+                                            Padding(
+                                              padding: const EdgeInsets.only(left: 8.0),
+                                              child: Text(
+                                                'Taken', style: TextStyle(
+                                                  color: Color.fromARGB(255, 21, 179, 244), fontSize: 15, fontWeight: FontWeight.normal, height: 1.5
+                                              ),),
+                                            ),
+                                          ],
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+
+                          SizedBox(
+                            height: 150,
+                            width: 170,
+                            child: Card(
+                              elevation: 1,
+                              child: Padding(
+                                padding: const EdgeInsets.all(12.0),
+                                child: Center(
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: <Widget>[
+                                      Text(
+                                        'Ramipril Mepha', style: TextStyle(
+                                          color: Colors.black, fontSize: 18, fontWeight: FontWeight.w500, height: 1.5
+                                      ),),
+
+                                      Text(
+                                        '1 Pill • 10 mg', style: TextStyle(
+                                          color: Colors.grey, fontSize: 15, fontWeight: FontWeight.normal, height: 1.5
+                                      ),),
+
+                                      Padding(
+                                        padding: const EdgeInsets.only(top: 25.0),
+                                        child: Row(
+                                          children: <Widget>[
+                                            Icon(Icons.check_circle, color: Color.fromARGB(255, 21, 179, 244),),
+                                            Padding(
+                                              padding: const EdgeInsets.only(left: 8.0),
+                                              child: Text(
+                                                'Taken', style: TextStyle(
+                                                  color: Color.fromARGB(255, 21, 179, 244), fontSize: 15, fontWeight: FontWeight.normal, height: 1.5
+                                              ),),
+                                            ),
+                                          ],
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+
+                          SizedBox(
+                            height: 150,
+                            width: 170,
+                            child: Card(
+                              elevation: 1,
+                              child: Padding(
+                                padding: const EdgeInsets.all(12.0),
+                                child: Center(
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: <Widget>[
+                                      Text(
+                                        'Ramipril Mepha', style: TextStyle(
+                                          color: Colors.black, fontSize: 18, fontWeight: FontWeight.w500, height: 1.5
+                                      ),),
+
+                                      Text(
+                                        '1 Pill • 10 mg', style: TextStyle(
+                                          color: Colors.grey, fontSize: 15, fontWeight: FontWeight.normal, height: 1.5
+                                      ),),
+
+                                      Padding(
+                                        padding: const EdgeInsets.only(top: 25.0),
+                                        child: Row(
+                                          children: <Widget>[
+                                            Icon(Icons.check_circle, color: Color.fromARGB(255, 21, 179, 244),),
+                                            Padding(
+                                              padding: const EdgeInsets.only(left: 8.0),
+                                              child: Text(
+                                                'Taken', style: TextStyle(
+                                                  color: Color.fromARGB(255, 21, 179, 244), fontSize: 15, fontWeight: FontWeight.normal, height: 1.5
+                                              ),),
+                                            ),
+                                          ],
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+
+                        ],
+                      ),
+                    ),
+
+
+
                   ],
                 ),
               ),
             ],
-          )
+          ),
         ),
     );
   }
