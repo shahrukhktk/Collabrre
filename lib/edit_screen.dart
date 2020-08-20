@@ -1,23 +1,12 @@
-import 'package:collabree/edit_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-void main() => runApp(new MaterialApp(
-  theme: ThemeData(
-    primaryColor: Colors.white,
-    accentColor: Colors.white,
-    fontFamily: "SFProDisplay",
-  ),
-  debugShowCheckedModeBanner: false,
-  home: HomeScreen(),
-));
-
-class HomeScreen extends StatefulWidget {
+class EditScreen extends StatefulWidget {
   @override
-  _HomeScreenState createState() => _HomeScreenState();
+  _EditScreenState createState() => _EditScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _EditScreenState extends State<EditScreen> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -663,8 +652,7 @@ void _BottomSheet(context){
 
                     GestureDetector(
                       onTap: (){
-                        Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => EditScreen()),);
+                        //TODO Click Listener
                       },
                       child: SizedBox(
                         height: 40,
