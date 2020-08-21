@@ -58,8 +58,6 @@ class _HomeScreenState extends State<HomeScreen> {
                           ],
                         ),
 
-                        SizedBox(width: 200,),
-
                         Icon(Icons.menu),
 
                       ],
@@ -133,14 +131,14 @@ class _HomeScreenState extends State<HomeScreen> {
                                       padding: const EdgeInsets.only(top: 10.0),
                                       child: Text(
                                         'Two weeks gone by. Time \nto measure your blood.', style: TextStyle(
-                                          color: Colors.white, fontSize: 15, fontWeight: FontWeight.normal, height: 1.5
+                                          color: Colors.white, fontSize: 13, fontWeight: FontWeight.normal, height: 1.5
                                       ),
                                       ),
                                     ),
                                   ],
                                 ),
 
-                                Image(image: AssetImage('images/doctor.png'),),
+                                Image(image: AssetImage('images/doctor.png'), height: 80,),
 
                               ],
                             ),
@@ -666,27 +664,35 @@ void _BottomSheet(context){
                         Navigator.push(context,
                           MaterialPageRoute(builder: (context) => EditScreen()),);
                       },
-                      child: SizedBox(
-                        height: 40,
-                        width: 100,
-                        child: Container(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(20),
-                            color: Colors.grey
-                          ),
-                          child: Padding(
-                            padding: const EdgeInsets.only(left: 12.0),
-                            child: Row(
-                              children: <Widget>[
-                                Icon(Icons.edit, color: Colors.white,),
-                                Padding(
-                                  padding: const EdgeInsets.only(left: 8.0),
-                                  child: Text(
-                                    'Edit', style: TextStyle(
-                                      color: Colors.white, fontSize: 18, fontWeight: FontWeight.w400, height: 1.5
-                                  ),),
-                                ),
-                              ],
+                      child: GestureDetector(
+                        onTap: (){
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => EditScreen()),
+                          );
+                        },
+                        child: SizedBox(
+                          height: 40,
+                          width: 100,
+                          child: Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(20),
+                              color: Colors.grey
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.only(left: 12.0),
+                              child: Row(
+                                children: <Widget>[
+                                  Icon(Icons.edit, color: Colors.white,),
+                                  Padding(
+                                    padding: const EdgeInsets.only(left: 8.0),
+                                    child: Text(
+                                      'Edit', style: TextStyle(
+                                        color: Colors.white, fontSize: 18, fontWeight: FontWeight.w400, height: 1.5
+                                    ),),
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                         ),
