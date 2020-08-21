@@ -521,13 +521,28 @@ class _EditScreenState extends State<EditScreen> {
 
                   SizedBox(height: 10,),
 
-                  CustomSwitch(
-                    value: _enabled,
-                    onChanged: (bool val){
-                      setState(() {
-                        _enabled = val;
-                      });
-                    },
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: <Widget>[
+                      CustomSwitch(
+                        value: _enabled,
+                        onChanged: (bool val){
+                          setState(() {
+                            _enabled = val;
+                          });
+                        },
+                      ),
+
+                      Padding(
+                        padding: const EdgeInsets.only(left: 15.0),
+                        child: Text(
+                          'Active', style: TextStyle(
+                            color: Colors.black, fontSize: 18, fontWeight: FontWeight.w600, height: 1.5
+                        ),),
+                      ),
+
+                    ],
                   ),
 
                   SizedBox(height: 20,),
