@@ -1,3 +1,4 @@
+import 'package:collabree/AppConstants/constant.dart';
 import 'package:collabree/custom_swtich_btn.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -7,63 +8,15 @@ class EditScreen extends StatefulWidget {
   _EditScreenState createState() => _EditScreenState();
 }
 
+final appColor = AppColors.themeColor;
+final backgroundImage = Resources.background_Image;
+final doctor_Image = Resources.doctor_Image;
+final pill_Image = Resources.pill_Image;
+final progress_Image = Resources.progress_Image;
+
+
 class _EditScreenState extends State<EditScreen> {
 
-//  TextFormField focusedTextFormField(String text)
-//  {
-//    TextFormField(
-//        keyboardType: TextInputType.text,
-//        decoration: InputDecoration(
-//          hoverColor: Color.fromARGB(255, 21, 179, 244),
-//          focusColor: Color.fromARGB(255, 21, 179, 244),
-//          labelText: "$text",
-//          contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-//          prefixIcon: Icon(Icons.check_circle, color: Color.fromARGB(255, 21, 179, 244),),
-//          fillColor: Color.fromARGB(255, 21, 179, 244),
-//          focusedBorder: OutlineInputBorder(
-//            borderRadius: BorderRadius.circular(5.0),
-//            borderSide: BorderSide(
-//              color: Color.fromARGB(255, 21, 179, 244),
-//            ),
-//          ),
-//          enabledBorder: OutlineInputBorder(
-//            borderRadius: BorderRadius.circular(5.0),
-//            borderSide: BorderSide(
-//              color: Color.fromARGB(255, 21, 179, 244),
-//              width: 1.0,
-//            ),
-//          ),
-//        )
-//    );
-//  }
-//
-//  TextFormField unfocusedTextFormField(String text)
-//  {
-//    TextFormField(
-//        keyboardType: TextInputType.text,
-//        decoration: InputDecoration(
-//          hoverColor: Colors.grey,
-//          focusColor: Colors.grey,
-//          labelText: "$text",
-//          contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-//          prefixIcon: Icon(Icons.radio_button_unchecked, color: Colors.grey),
-//          fillColor: Colors.grey,
-//          focusedBorder: OutlineInputBorder(
-//            borderRadius: BorderRadius.circular(5.0),
-//            borderSide: BorderSide(
-//              color: Colors.grey,
-//            ),
-//          ),
-//          enabledBorder: OutlineInputBorder(
-//            borderRadius: BorderRadius.circular(5.0),
-//            borderSide: BorderSide(
-//              color: Colors.grey,
-//              width: 1.0,
-//            ),
-//          ),
-//        )
-//    );
-//  }
 
   @override
   Widget build(BuildContext context) {

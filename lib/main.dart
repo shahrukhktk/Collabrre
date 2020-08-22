@@ -1,6 +1,7 @@
 import 'package:collabree/edit_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'AppConstants/constant.dart';
 
 void main() => runApp(new MaterialApp(
   theme: ThemeData(
@@ -11,6 +12,12 @@ void main() => runApp(new MaterialApp(
   debugShowCheckedModeBanner: false,
   home: HomeScreen(),
 ));
+
+final appColor = AppColors.themeColor;
+final backgroundImage = Resources.background_Image;
+final doctor_Image = Resources.doctor_Image;
+final pill_Image = Resources.pill_Image;
+final progress_Image = Resources.progress_Image;
 
 class HomeScreen extends StatefulWidget {
   @override
