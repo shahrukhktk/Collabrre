@@ -2,11 +2,12 @@ import 'package:collabree/edit_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'AppConstants/constant.dart';
+import 'AppWidgets/Checkbox.dart';
 
 void main() => runApp(new MaterialApp(
   theme: ThemeData(
-    primaryColor: Colors.white,
-    accentColor: Colors.white,
+    primaryColor: appColor,
+    accentColor: appColor,
     fontFamily: "SFProDisplay",
   ),
   debugShowCheckedModeBanner: false,
@@ -30,7 +31,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Container(
       decoration: BoxDecoration(
         image: new DecorationImage(
-          image: new AssetImage("images/background.png"),
+          image: new AssetImage(backgroundImage),
           fit: BoxFit.fill,
         ),
       ),
@@ -52,20 +53,20 @@ class _HomeScreenState extends State<HomeScreen> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
                             Text(
-                              'Good Morning', style: TextStyle(
+                              strings.goodMorning, style: TextStyle(
                               color: Colors.grey[700], fontSize: 16
                             ),
                             ),
 
                             Text(
-                              'Stephen Hopkins', style: TextStyle(
+                              strings.stephen, style: TextStyle(
                                 color: Colors.black, fontSize: 18, fontWeight: FontWeight.w600, height: 1.5
                             ),
                             ),
                           ],
                         ),
 
-                        Icon(Icons.menu),
+                        App_Icons.ic_menu,
 
                       ],
                     ),
@@ -81,13 +82,14 @@ class _HomeScreenState extends State<HomeScreen> {
                           padding: const EdgeInsets.all(12.0),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: <Widget>[
                               Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: <Widget>[
                                   Text(
-                                    'Points You Earned', style: TextStyle(
+                                    strings.points, style: TextStyle(
                                       color: Colors.black, fontSize: 18, fontWeight: FontWeight.w600, height: 1.5
                                   ),
                                   ),
@@ -95,7 +97,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   Padding(
                                     padding: const EdgeInsets.only(top: 15.0),
                                     child: Text(
-                                      'You have 50 USD Balance', style: TextStyle(
+                                      strings.fiftyUsd, style: TextStyle(
                                         color: Colors.black, fontSize: 15, fontWeight: FontWeight.normal, height: 1.5
                                     ),
                                     ),
@@ -103,7 +105,10 @@ class _HomeScreenState extends State<HomeScreen> {
                                 ],
                               ),
 
-                              Image(image: AssetImage('images/progress.png'),),
+                              Padding(
+                                padding: const EdgeInsets.only(left: 8.0),
+                                child: CircularProgress(),
+                              ),
 
                             ],
                           ),
@@ -118,36 +123,39 @@ class _HomeScreenState extends State<HomeScreen> {
                         height: 150,
                         child: Card(
                           elevation: 2,
-                          color: Color.fromARGB(255, 113, 128, 244),
+                          color: AppColors.card_Color,
                           child: Padding(
                             padding: const EdgeInsets.only(left: 12.0),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: <Widget>[
-                                Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: <Widget>[
-                                    Text(
-                                      'It’s time to measure \nyour blood preassure', style: TextStyle(
-                                        color: Colors.white, fontSize: 18, fontWeight: FontWeight.w600, height: 1.5
-                                    ),
-                                    ),
-
-                                    Padding(
-                                      padding: const EdgeInsets.only(top: 10.0),
-                                      child: Text(
-                                        'Two weeks gone by. Time \nto measure your blood.', style: TextStyle(
-                                          color: Colors.white, fontSize: 13, fontWeight: FontWeight.normal, height: 1.5
+                            child: SingleChildScrollView(
+                              scrollDirection: Axis.horizontal,
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: <Widget>[
+                                  Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: <Widget>[
+                                      Text(
+                                        strings.bloodpressure, style: TextStyle(
+                                          color: Colors.white, fontSize: 18, fontWeight: FontWeight.w600, height: 1.5
                                       ),
                                       ),
-                                    ),
-                                  ],
-                                ),
 
-                                Image(image: AssetImage('images/doctor.png'), height: 80,),
+                                      Padding(
+                                        padding: const EdgeInsets.only(top: 10.0),
+                                        child: Text(
+                                          strings.measureblood, style: TextStyle(
+                                            color: Colors.white, fontSize: 13, fontWeight: FontWeight.normal, height: 1.5
+                                        ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
 
-                              ],
+                                  Image(image: AssetImage(doctor_Image), height:75,),
+
+                                ],
+                              ),
                             ),
                           ),
                         ),
@@ -168,13 +176,13 @@ class _HomeScreenState extends State<HomeScreen> {
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: <Widget>[
                               Text(
-                                '02', style: TextStyle(
+                                strings.two, style: TextStyle(
                                   color: Colors.black, fontSize: 15, fontWeight: FontWeight.normal, height: 1.5
                               ),
                               ),
 
                               Text(
-                                'Mon', style: TextStyle(
+                                strings.mon, style: TextStyle(
                                   color: Colors.black, fontSize: 15, fontWeight: FontWeight.normal, height: 1.5
                               ),
                               ),
@@ -187,14 +195,12 @@ class _HomeScreenState extends State<HomeScreen> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: <Widget>[
-                                Text(
-                                  '03', style: TextStyle(
+                                Text(strings.three, style: TextStyle(
                                     color: Colors.black, fontSize: 15, fontWeight: FontWeight.normal, height: 1.5
                                 ),
                                 ),
 
-                                Text(
-                                  'Tue', style: TextStyle(
+                                Text(strings.tue, style: TextStyle(
                                     color: Colors.black, fontSize: 15, fontWeight: FontWeight.normal, height: 1.5
                                 ),
                                 ),
@@ -208,14 +214,12 @@ class _HomeScreenState extends State<HomeScreen> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: <Widget>[
-                                Text(
-                                  '04', style: TextStyle(
+                                Text(strings.four, style: TextStyle(
                                     color: Colors.black, fontSize: 15, fontWeight: FontWeight.normal, height: 1.5
                                 ),
                                 ),
 
-                                Text(
-                                  'Wed', style: TextStyle(
+                                Text(strings.wed, style: TextStyle(
                                     color: Colors.black, fontSize: 15, fontWeight: FontWeight.normal, height: 1.5
                                 ),
                                 ),
@@ -228,21 +232,19 @@ class _HomeScreenState extends State<HomeScreen> {
                               padding: const EdgeInsets.only(left: 20.0),
                               child: Card(
                                 elevation: 2,
-                                color: Color.fromARGB(255, 21, 179, 244),
+                                color: AppColors.themeColor,
                                 child: Padding(
                                   padding: const EdgeInsets.all(10.0),
                                   child: Column(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     crossAxisAlignment: CrossAxisAlignment.center,
                                     children: <Widget>[
-                                      Text(
-                                        '05', style: TextStyle(
+                                      Text(strings.five, style: TextStyle(
                                           color: Colors.white, fontSize: 15, fontWeight: FontWeight.normal, height: 1.5
                                       ),
                                       ),
 
-                                      Text(
-                                        'Thu', style: TextStyle(
+                                      Text(strings.thu, style: TextStyle(
                                           color: Colors.white, fontSize: 15, fontWeight: FontWeight.normal, height: 1.5
                                       ),
                                       ),
@@ -259,35 +261,12 @@ class _HomeScreenState extends State<HomeScreen> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: <Widget>[
-                                Text(
-                                  '06', style: TextStyle(
+                                Text(strings.six, style: TextStyle(
                                     color: Colors.black, fontSize: 15, fontWeight: FontWeight.normal, height: 1.5
                                 ),
                                 ),
 
-                                Text(
-                                  'Fri', style: TextStyle(
-                                    color: Colors.black, fontSize: 15, fontWeight: FontWeight.normal, height: 1.5
-                                ),
-                                ),
-                              ],
-                            ),
-                          ),
-
-                          Padding(
-                            padding: const EdgeInsets.only(left: 20.0),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: <Widget>[
-                                Text(
-                                  '07', style: TextStyle(
-                                    color: Colors.black, fontSize: 15, fontWeight: FontWeight.normal, height: 1.5
-                                ),
-                                ),
-
-                                Text(
-                                  'Sat', style: TextStyle(
+                                Text(strings.fri, style: TextStyle(
                                     color: Colors.black, fontSize: 15, fontWeight: FontWeight.normal, height: 1.5
                                 ),
                                 ),
@@ -301,14 +280,31 @@ class _HomeScreenState extends State<HomeScreen> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: <Widget>[
-                                Text(
-                                  '08', style: TextStyle(
+                                Text(strings.seven, style: TextStyle(
                                     color: Colors.black, fontSize: 15, fontWeight: FontWeight.normal, height: 1.5
                                 ),
                                 ),
 
-                                Text(
-                                  'Sun', style: TextStyle(
+                                Text(strings.sat, style: TextStyle(
+                                    color: Colors.black, fontSize: 15, fontWeight: FontWeight.normal, height: 1.5
+                                ),
+                                ),
+                              ],
+                            ),
+                          ),
+
+                          Padding(
+                            padding: const EdgeInsets.only(left: 20.0),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: <Widget>[
+                                Text(strings.eight, style: TextStyle(
+                                    color: Colors.black, fontSize: 15, fontWeight: FontWeight.normal, height: 1.5
+                                ),
+                                ),
+
+                                Text(strings.sun, style: TextStyle(
                                     color: Colors.black, fontSize: 15, fontWeight: FontWeight.normal, height: 1.5
                                 ),
                                 ),
@@ -322,8 +318,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
                     SizedBox(height: 10,),
 
-                    Text(
-                      'In Morning', style: TextStyle(
+                    Text(strings.morningTitle, style: TextStyle(
                         color: Colors.black, fontSize: 18, fontWeight: FontWeight.w600, height: 1.5
                     ),),
 
@@ -348,13 +343,11 @@ class _HomeScreenState extends State<HomeScreen> {
                                     mainAxisAlignment: MainAxisAlignment.start,
                                     crossAxisAlignment: CrossAxisAlignment.start,
                                     children: <Widget>[
-                                      Text(
-                                        'Aspirin', style: TextStyle(
+                                      Text(strings.aspirin, style: TextStyle(
                                           color: Colors.black, fontSize: 17, fontWeight: FontWeight.w500, height: 1.5
                                       ),),
 
-                                      Text(
-                                        '1 Pill • 100 mg', style: TextStyle(
+                                      Text(strings.hundredMG_pill, style: TextStyle(
                                           color: Colors.grey, fontSize: 15, fontWeight: FontWeight.normal, height: 1.5
                                       ),),
 
@@ -362,11 +355,10 @@ class _HomeScreenState extends State<HomeScreen> {
                                         padding: const EdgeInsets.only(top: 25.0),
                                         child: Row(
                                           children: <Widget>[
-                                            Icon(Icons.check_circle, color: Color.fromARGB(255, 21, 179, 244),),
+                                            Icon(Icons.check_circle, color: appColor,),
                                             Padding(
                                               padding: const EdgeInsets.only(left: 8.0),
-                                              child: Text(
-                                                'Taken', style: TextStyle(
+                                              child: Text(strings.taken, style: TextStyle(
                                                   color: Color.fromARGB(255, 21, 179, 244), fontSize: 15, fontWeight: FontWeight.normal, height: 1.5
                                               ),),
                                             ),
@@ -392,13 +384,11 @@ class _HomeScreenState extends State<HomeScreen> {
                                     mainAxisAlignment: MainAxisAlignment.start,
                                     crossAxisAlignment: CrossAxisAlignment.start,
                                     children: <Widget>[
-                                      Text(
-                                        'Ramipril Mepha', style: TextStyle(
+                                      Text(strings.Ramlpril, style: TextStyle(
                                           color: Colors.black, fontSize: 17, fontWeight: FontWeight.w500, height: 1.5
                                       ),),
 
-                                      Text(
-                                        '1 Pill • 10 mg', style: TextStyle(
+                                      Text(strings.tenMG_pill, style: TextStyle(
                                           color: Colors.grey, fontSize: 15, fontWeight: FontWeight.normal, height: 1.5
                                       ),),
 
@@ -406,11 +396,10 @@ class _HomeScreenState extends State<HomeScreen> {
                                         padding: const EdgeInsets.only(top: 25.0),
                                         child: Row(
                                           children: <Widget>[
-                                            Icon(Icons.check_circle, color: Colors.grey),
+                                            App_Icons.ic_checked_dull,
                                             Padding(
                                               padding: const EdgeInsets.only(left: 8.0),
-                                              child: Text(
-                                                'Taken', style: TextStyle(
+                                              child: Text(strings.taken, style: TextStyle(
                                                   color: Colors.grey, fontSize: 15, fontWeight: FontWeight.normal, height: 1.5
                                               ),),
                                             ),
@@ -436,13 +425,11 @@ class _HomeScreenState extends State<HomeScreen> {
                                     mainAxisAlignment: MainAxisAlignment.start,
                                     crossAxisAlignment: CrossAxisAlignment.start,
                                     children: <Widget>[
-                                      Text(
-                                        'Ramipril Mepha', style: TextStyle(
+                                      Text(strings.Ramlpril, style: TextStyle(
                                           color: Colors.black, fontSize: 17, fontWeight: FontWeight.w500, height: 1.5
                                       ),),
 
-                                      Text(
-                                        '1 Pill • 10 mg', style: TextStyle(
+                                      Text(strings.tenMG_pill, style: TextStyle(
                                           color: Colors.grey, fontSize: 15, fontWeight: FontWeight.normal, height: 1.5
                                       ),),
 
@@ -450,11 +437,10 @@ class _HomeScreenState extends State<HomeScreen> {
                                         padding: const EdgeInsets.only(top: 25.0),
                                         child: Row(
                                           children: <Widget>[
-                                            Icon(Icons.check_circle, color: Colors.grey),
+                                            App_Icons.ic_checked_dull,
                                             Padding(
                                               padding: const EdgeInsets.only(left: 8.0),
-                                              child: Text(
-                                                'Taken', style: TextStyle(
+                                              child: Text(strings.taken, style: TextStyle(
                                                   color: Colors.grey, fontSize: 15, fontWeight: FontWeight.normal, height: 1.5
                                               ),),
                                             ),
@@ -474,8 +460,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
                     SizedBox(height: 10,),
 
-                    Text(
-                      'In Evening', style: TextStyle(
+                    Text(strings.eveningTitle, style: TextStyle(
                         color: Colors.black, fontSize: 18, fontWeight: FontWeight.w600, height: 1.5
                     ),),
 
@@ -500,13 +485,11 @@ class _HomeScreenState extends State<HomeScreen> {
                                     mainAxisAlignment: MainAxisAlignment.start,
                                     crossAxisAlignment: CrossAxisAlignment.start,
                                     children: <Widget>[
-                                      Text(
-                                        'Metformin Mepha', style: TextStyle(
+                                      Text(strings.metformin, style: TextStyle(
                                           color: Colors.black, fontSize: 17, fontWeight: FontWeight.w500, height: 1.5
                                       ),),
 
-                                      Text(
-                                        '1 Injec • 500 mg', style: TextStyle(
+                                      Text(strings.five_hundredMG_injection, style: TextStyle(
                                           color: Colors.grey, fontSize: 15, fontWeight: FontWeight.normal, height: 1.5
                                       ),),
 
@@ -514,11 +497,10 @@ class _HomeScreenState extends State<HomeScreen> {
                                         padding: const EdgeInsets.only(top: 25.0),
                                         child: Row(
                                           children: <Widget>[
-                                            Icon(Icons.check_circle, color: Colors.grey),
+                                            App_Icons.ic_checked_dull,
                                             Padding(
                                               padding: const EdgeInsets.only(left: 8.0),
-                                              child: Text(
-                                                'Taken', style: TextStyle(
+                                              child: Text(strings.taken, style: TextStyle(
                                                   color: Colors.grey, fontSize: 15, fontWeight: FontWeight.normal, height: 1.5
                                               ),),
                                             ),
@@ -544,13 +526,11 @@ class _HomeScreenState extends State<HomeScreen> {
                                     mainAxisAlignment: MainAxisAlignment.start,
                                     crossAxisAlignment: CrossAxisAlignment.start,
                                     children: <Widget>[
-                                      Text(
-                                        'Atrovastatin', style: TextStyle(
+                                      Text(strings.Atrovastatin, style: TextStyle(
                                           color: Colors.black, fontSize: 17, fontWeight: FontWeight.w500, height: 1.5
                                       ),),
 
-                                      Text(
-                                        '1 Pill • 10 mg', style: TextStyle(
+                                      Text(strings.tenMG_pill, style: TextStyle(
                                           color: Colors.grey, fontSize: 15, fontWeight: FontWeight.normal, height: 1.5
                                       ),),
 
@@ -558,11 +538,10 @@ class _HomeScreenState extends State<HomeScreen> {
                                         padding: const EdgeInsets.only(top: 25.0),
                                         child: Row(
                                           children: <Widget>[
-                                            Icon(Icons.check_circle, color: Colors.grey),
+                                            App_Icons.ic_checked_dull,
                                             Padding(
                                               padding: const EdgeInsets.only(left: 8.0),
-                                              child: Text(
-                                                'Taken', style: TextStyle(
+                                              child: Text(strings.taken, style: TextStyle(
                                                   color: Colors.grey, fontSize: 15, fontWeight: FontWeight.normal, height: 1.5
                                               ),),
                                             ),
@@ -588,13 +567,11 @@ class _HomeScreenState extends State<HomeScreen> {
                                     mainAxisAlignment: MainAxisAlignment.start,
                                     crossAxisAlignment: CrossAxisAlignment.start,
                                     children: <Widget>[
-                                      Text(
-                                        'Atrovastatin', style: TextStyle(
+                                      Text(strings.Atrovastatin, style: TextStyle(
                                           color: Colors.black, fontSize: 17, fontWeight: FontWeight.w500, height: 1.5
                                       ),),
 
-                                      Text(
-                                        '1 Pill • 10 mg', style: TextStyle(
+                                      Text(strings.tenMG_pill, style: TextStyle(
                                           color: Colors.grey, fontSize: 15, fontWeight: FontWeight.normal, height: 1.5
                                       ),),
 
@@ -602,11 +579,10 @@ class _HomeScreenState extends State<HomeScreen> {
                                         padding: const EdgeInsets.only(top: 25.0),
                                         child: Row(
                                           children: <Widget>[
-                                            Icon(Icons.check_circle, color: Colors.grey),
+                                            App_Icons.ic_checked_dull,
                                             Padding(
                                               padding: const EdgeInsets.only(left: 8.0),
-                                              child: Text(
-                                                'Taken', style: TextStyle(
+                                              child: Text(strings.taken, style: TextStyle(
                                                   color: Colors.grey, fontSize: 15, fontWeight: FontWeight.normal, height: 1.5
                                               ),),
                                             ),
@@ -631,8 +607,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       {
                         _BottomSheet(context);
                       },
-                      child: Text(
-                        'See all your medications  >>', style: TextStyle(
+                      child: Text(strings.all_medications, style: TextStyle(
                           color: Colors.grey, fontSize: 18, fontWeight: FontWeight.w400, height: 1.5
                       ),),
                     ),
@@ -653,10 +628,13 @@ void _BottomSheet(context){
       builder: (BuildContext bc){
         return Container(
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.vertical(top: Radius.circular(20),),
+              color: appColor,
+              borderRadius: new BorderRadius.only(
+                  topLeft:  const  Radius.circular(30.0),
+                  topRight: const  Radius.circular(30.0))
           ),
           child: Padding(
-            padding: const EdgeInsets.all(12.0),
+            padding: const EdgeInsets.all(15.0),
             child: ListView(
               children: <Widget>[
 
@@ -664,7 +642,11 @@ void _BottomSheet(context){
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    Icon(Icons.clear, color: Colors.black,),
+
+                    GestureDetector(child: App_Icons.ic_cross,
+                    onTap: (){
+                      Navigator.pop(context);
+                    },),
 
                     GestureDetector(
                       onTap: (){
@@ -684,18 +666,17 @@ void _BottomSheet(context){
                           child: Container(
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(20),
-                              color: Colors.grey
+                              color: Colors.white
                             ),
                             child: Padding(
                               padding: const EdgeInsets.only(left: 12.0),
                               child: Row(
                                 children: <Widget>[
-                                  Icon(Icons.edit, color: Colors.white,),
+                                  App_Icons.ic_edit,
                                   Padding(
                                     padding: const EdgeInsets.only(left: 8.0),
-                                    child: Text(
-                                      'Edit', style: TextStyle(
-                                        color: Colors.white, fontSize: 18, fontWeight: FontWeight.w400, height: 1.5
+                                    child: Text(strings.edit, style: TextStyle(
+                                        color: Colors.black, fontSize: 18, fontWeight: FontWeight.w400, height: 1.5
                                     ),),
                                   ),
                                 ],
@@ -709,16 +690,14 @@ void _BottomSheet(context){
                 ),
 
                 Center(
-                  child: Text(
-                    'Aspirin, 100 mg', style: TextStyle(
-                      color: Colors.black, fontSize: 25, fontWeight: FontWeight.w400, height: 1.5
+                  child: Text(strings.aspirin_100mg, style: TextStyle(
+                      color: Colors.white, fontSize: 25, fontWeight: FontWeight.w400, height: 1.5
                   ),),
                 ),
 
                 Center(
-                  child: Text(
-                    '1 Pill, Twice per day', style: TextStyle(
-                      color: Colors.grey, fontSize: 18, fontWeight: FontWeight.normal, height: 1.5
+                  child: Text(strings.pill_twice_day, style: TextStyle(
+                      color: Colors.white, fontSize: 18, fontWeight: FontWeight.normal, height: 1.5
                   ),),
                 ),
 
@@ -727,7 +706,7 @@ void _BottomSheet(context){
                   child: Center(
                     child: Image(
                       image: AssetImage(
-                        'images/pill.png'
+                        pill_Image
                       ),
                     ),
                   ),
@@ -736,32 +715,28 @@ void _BottomSheet(context){
                 SizedBox(height: 20,),
 
                 Center(
-                  child: Text(
-                    'Time', style: TextStyle(
-                      color: Colors.black, fontSize: 20, fontWeight: FontWeight.w400, height: 1.5
+                  child: Text(strings.time, style: TextStyle(
+                      color: Colors.white, fontSize: 20, fontWeight: FontWeight.w400, height: 1.5
                   ),),
                 ),
 
                 Center(
-                  child: Text(
-                    '7 am • Breakfirst ', style: TextStyle(
-                      color: Colors.grey, fontSize: 18, fontWeight: FontWeight.normal, height: 1.5
+                  child: Text(strings.firstBreakTime, style: TextStyle(
+                      color: Colors.white, fontSize: 18, fontWeight: FontWeight.normal, height: 1.5
                   ),),
                 ),
 
                 SizedBox(height: 20,),
 
                 Center(
-                  child: Text(
-                    'Hint', style: TextStyle(
-                      color: Colors.black, fontSize: 20, fontWeight: FontWeight.w400, height: 1.5
+                  child: Text(strings.hint, style: TextStyle(
+                      color: Colors.white, fontSize: 20, fontWeight: FontWeight.w400, height: 1.5
                   ),),
                 ),
 
                 Center(
-                  child: Text(
-                    'Take 15 mins break while eating', style: TextStyle(
-                      color: Colors.grey, fontSize: 18, fontWeight: FontWeight.normal, height: 1.5
+                  child: Text(strings.eatingBreak, style: TextStyle(
+                      color: Colors.white, fontSize: 18, fontWeight: FontWeight.normal, height: 1.5
                   ),),
                 ),
 
@@ -779,12 +754,13 @@ void _BottomSheet(context){
                           width: 120,
                           child: Container(
                             decoration: BoxDecoration(
+                                border: Border.all(
+                                  color: Colors.white,
+                                ),
                                 borderRadius: BorderRadius.circular(5),
-                                color: Colors.grey
                             ),
                             child: Center(
-                              child: Text(
-                                'Later', style: TextStyle(
+                              child: Text(strings.later, style: TextStyle(
                                   color: Colors.white, fontSize: 18, fontWeight: FontWeight.normal, height: 1.5
                               ),),
                             ),
@@ -802,12 +778,11 @@ void _BottomSheet(context){
                           child: Container(
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(5),
-                                color: Color.fromARGB(255, 21, 179, 244),
+                                color: Colors.white,
                             ),
                             child: Center(
-                              child: Text(
-                                'Take Now', style: TextStyle(
-                                  color: Colors.white, fontSize: 18, fontWeight: FontWeight.normal, height: 1.5
+                              child: Text(strings.takeNow, style: TextStyle(
+                                  color: appColor, fontSize: 18, fontWeight: FontWeight.normal, height: 1.5
                               ),),
                             ),
                           ),
@@ -820,8 +795,7 @@ void _BottomSheet(context){
                 SizedBox(height: 10,),
 
                 Center(
-                  child: Text(
-                    'Not Today', style: TextStyle(
+                  child: Text(strings.not_today, style: TextStyle(
                       color: Colors.red, fontSize: 18, fontWeight: FontWeight.normal, height: 1.5
                   ),),
                 ),

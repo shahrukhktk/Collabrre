@@ -1,5 +1,6 @@
 import 'package:collabree/AppConstants/constant.dart';
 import 'package:collabree/custom_swtich_btn.dart';
+import 'package:collabree/main.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -9,19 +10,22 @@ class EditScreen extends StatefulWidget {
 }
 
 final appColor = AppColors.themeColor;
-final backgroundImage = Resources.background_Image;
-final doctor_Image = Resources.doctor_Image;
-final pill_Image = Resources.pill_Image;
-final progress_Image = Resources.progress_Image;
-
 
 class _EditScreenState extends State<EditScreen> {
 
+  bool _checked= false;
+  int checked_checkbox;
+  bool _enabled = true;
+
+  void onChanged(bool val)
+  {
+    setState(() {
+      _checked = val;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
-
-    bool _enabled = true;
 
     return Scaffold(
       backgroundColor: Colors.white,
@@ -38,11 +42,18 @@ class _EditScreenState extends State<EditScreen> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
 
-                      Icon(Icons.clear),
+                      GestureDetector(
+                          child: Icon(Icons.clear),
+                        onTap: (){
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => HomeScreen()),
+                          );
+                        },
+                      ),
                       Padding(
                         padding: const EdgeInsets.only(right: 120.0),
-                        child: Text(
-                          'Edit Details', style: TextStyle(
+                        child: Text(strings.edit_details, style: TextStyle(
                             color: Colors.black, fontSize: 18, fontWeight: FontWeight.w600, height: 1.5
                         ),
                         ),
@@ -53,8 +64,7 @@ class _EditScreenState extends State<EditScreen> {
 
                   SizedBox(height: 20,),
 
-                  Text(
-                    'You can change your medication, dosage and timing here.', style: TextStyle(
+                  Text(strings.change_medication_desc, style: TextStyle(
                       color: Colors.black, fontSize: 15, fontWeight: FontWeight.normal, height: 1.5
                   ),),
 
@@ -62,278 +72,266 @@ class _EditScreenState extends State<EditScreen> {
 
                   //TODO Next > Reminders
 
-                  Text(
-                    'Reminders', style: TextStyle(
+                  Text(strings.reminderTitle, style: TextStyle(
                       color: Colors.black, fontSize: 18, fontWeight: FontWeight.w600, height: 1.5
                   ),),
 
                   SizedBox(height: 10,),
 
-                  TextFormField(
-                      keyboardType: TextInputType.text,
-                      decoration: InputDecoration(
-                        hoverColor: Color.fromARGB(255, 21, 179, 244),
-                        focusColor: Color.fromARGB(255, 21, 179, 244),
-                        labelText: "7:00 am • Breakfast",
-                        contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-                        prefixIcon: Icon(Icons.check_circle, color: Color.fromARGB(255, 21, 179, 244),),
-                        fillColor: Color.fromARGB(255, 21, 179, 244),
-                        focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(5.0),
-                          borderSide: BorderSide(
-                            color: Color.fromARGB(255, 21, 179, 244),
-                          ),
+                  Container(
+                    decoration: BoxDecoration(
+                      border: Border.all(
+                        color: appColor,
+                      ),
+                      borderRadius: BorderRadius.circular(5.0),
+                    ),
+                    child: Row(
+                      children: <Widget>[
+                        Checkbox(
+                          value: _checked,
+                          onChanged: onChanged,
+                          activeColor: appColor,
+                          checkColor: Colors.white,
                         ),
-                        enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(5.0),
-                          borderSide: BorderSide(
-                            color: Color.fromARGB(255, 21, 179, 244),
-                            width: 1.0,
-                          ),
-                        ),
-                      )
+
+                        Text(strings.breakfast, style: TextStyle(
+                            fontSize: 16.0
+                        ),),
+
+                      ],
+                    ),
                   ),
 
                   SizedBox(height: 10,),
 
-                  TextFormField(
-                      keyboardType: TextInputType.text,
-                      decoration: InputDecoration(
-                        hoverColor: Colors.grey,
-                        focusColor: Colors.grey,
-                        labelText: "12:00 am • Lunch",
-                        contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-                        prefixIcon: Icon(Icons.radio_button_unchecked, color: Colors.grey),
-                        fillColor: Colors.grey,
-                        focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(5.0),
-                          borderSide: BorderSide(
-                            color: Colors.grey,
-                          ),
+                  Container(
+                    decoration: BoxDecoration(
+                      border: Border.all(
+                        color: Colors.grey,
+                      ),
+                      borderRadius: BorderRadius.circular(5.0),
+                    ),
+                    child: Row(
+                      children: <Widget>[
+                        Checkbox(
+                          value: _checked,
+                          onChanged: onChanged,
+                          activeColor: appColor,
+                          checkColor: Colors.white,
                         ),
-                        enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(5.0),
-                          borderSide: BorderSide(
-                            color: Colors.grey,
-                            width: 1.0,
-                          ),
-                        ),
-                      )
+
+                        Text(strings.Lunch, style: TextStyle(
+                            fontSize: 16.0
+                        ),),
+
+                      ],
+                    ),
                   ),
 
                   SizedBox(height: 10,),
 
-                  TextFormField(
-                      keyboardType: TextInputType.text,
-                      decoration: InputDecoration(
-                        hoverColor: Colors.grey,
-                        focusColor: Colors.grey,
-                        labelText: "5:00 pm • Dinner",
-                        contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-                        prefixIcon: Icon(Icons.radio_button_unchecked, color: Colors.grey),
-                        fillColor: Colors.grey,
-                        focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(5.0),
-                          borderSide: BorderSide(
-                            color: Colors.grey,
-                          ),
+                  Container(
+                    decoration: BoxDecoration(
+                      border: Border.all(
+                        color: Colors.grey,
+                      ),
+                      borderRadius: BorderRadius.circular(5.0),
+                    ),
+                    child: Row(
+                      children: <Widget>[
+                        Checkbox(
+                          value: _checked,
+                          onChanged: onChanged,
+                          activeColor: appColor,
+                          checkColor: Colors.white,
                         ),
-                        enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(5.0),
-                          borderSide: BorderSide(
-                            color: Colors.grey,
-                            width: 1.0,
-                          ),
-                        ),
-                      )
+
+                        Text(strings.Dinner, style: TextStyle(
+                            fontSize: 16.0
+                        ),),
+
+                      ],
+                    ),
                   ),
 
                   SizedBox(height: 10,),
 
-                  TextFormField(
-                      keyboardType: TextInputType.text,
-                      decoration: InputDecoration(
-                        hoverColor: Colors.grey,
-                        focusColor: Colors.grey,
-                        labelText: "9:00 pm • Nighttime",
-                        contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-                        prefixIcon: Icon(Icons.radio_button_unchecked, color: Colors.grey),
-                        fillColor: Colors.grey,
-                        focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(5.0),
-                          borderSide: BorderSide(
-                            color: Colors.grey,
-                          ),
+                  Container(
+                    decoration: BoxDecoration(
+                      border: Border.all(
+                        color: Colors.grey,
+                      ),
+                      borderRadius: BorderRadius.circular(5.0),
+                    ),
+                    child: Row(
+                      children: <Widget>[
+                        Checkbox(
+                          value: _checked,
+                          onChanged: onChanged,
+                          activeColor: appColor,
+                          checkColor: Colors.white,
                         ),
-                        enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(5.0),
-                          borderSide: BorderSide(
-                            color: Colors.grey,
-                            width: 1.0,
-                          ),
-                        ),
-                      )
+
+                        Text(strings.NightTime, style: TextStyle(
+                            fontSize: 16.0
+                        ),),
+
+                      ],
+                    ),
                   ),
 
                   //TODO Next > User Define Reminders
 
                   SizedBox(height: 20,),
 
-                  Text(
-                    'User Defined Reminders', style: TextStyle(
+                  Text(strings.userDefineRem_Title, style: TextStyle(
                       color: Colors.black, fontSize: 18, fontWeight: FontWeight.w600, height: 1.5
                   ),),
 
                   SizedBox(height: 10,),
 
-                  TextFormField(
-                      keyboardType: TextInputType.text,
-                      decoration: InputDecoration(
-                        hoverColor: Color.fromARGB(255, 21, 179, 244),
-                        focusColor: Color.fromARGB(255, 21, 179, 244),
-                        labelText: "3:00 pm • Every Thursday",
-                        contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-                        prefixIcon: Icon(Icons.check_circle, color: Color.fromARGB(255, 21, 179, 244),),
-                        fillColor: Color.fromARGB(255, 21, 179, 244),
-                        focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(5.0),
-                          borderSide: BorderSide(
-                            color: Color.fromARGB(255, 21, 179, 244),
-                          ),
+                  Container(
+                    decoration: BoxDecoration(
+                      border: Border.all(
+                        color: appColor,
+                      ),
+                      borderRadius: BorderRadius.circular(5.0),
+                    ),
+                    child: Row(
+                      children: <Widget>[
+                        Checkbox(
+                          value: _checked,
+                          onChanged: onChanged,
+                          activeColor: appColor,
+                          checkColor: Colors.white,
                         ),
-                        enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(5.0),
-                          borderSide: BorderSide(
-                            color: Color.fromARGB(255, 21, 179, 244),
-                            width: 1.0,
-                          ),
-                        ),
-                      )
+
+                        Text(strings.every_thursday, style: TextStyle(
+                            fontSize: 16.0
+                        ),),
+
+                      ],
+                    ),
                   ),
 
                   SizedBox(height: 10,),
 
-                  TextFormField(
-                      keyboardType: TextInputType.text,
-                      decoration: InputDecoration(
-                        hoverColor: Colors.grey,
-                        focusColor: Colors.grey,
-                        labelText: "Add New Reminder",
-                        contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-                        prefixIcon: Icon(Icons.add, color: Colors.grey),
-                        fillColor: Colors.grey,
-                        focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(5.0),
-                          borderSide: BorderSide(
-                            color: Colors.grey,
+                  Container(
+                    decoration: BoxDecoration(
+                      border: Border.all(
+                        color: Colors.grey,
+                      ),
+                      borderRadius: BorderRadius.circular(5.0),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.all(15.0),
+                      child: Row(
+                        children: <Widget>[
+                          App_Icons.ic_add,
+
+                          Padding(
+                            padding: const EdgeInsets.only(left: 8.0),
+                            child: Text(strings.add_remainder, style: TextStyle(
+                                fontSize: 16.0
+                            ),),
                           ),
-                        ),
-                        enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(5.0),
-                          borderSide: BorderSide(
-                            color: Colors.grey,
-                            width: 1.0,
-                          ),
-                        ),
-                      )
+
+                        ],
+                      ),
+                    ),
                   ),
 
                   //TODO Next > Timing
 
                   SizedBox(height: 20,),
 
-                  Text(
-                    'Timing', style: TextStyle(
+                  Text(strings.timing_title, style: TextStyle(
                       color: Colors.black, fontSize: 18, fontWeight: FontWeight.w600, height: 1.5
                   ),),
 
                   SizedBox(height: 10,),
 
-                  TextFormField(
-                      keyboardType: TextInputType.text,
-                      decoration: InputDecoration(
-                        hoverColor: Colors.grey,
-                        focusColor: Colors.grey,
-                        labelText: "Before Food • B",
-                        contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-                        prefixIcon: Icon(Icons.radio_button_unchecked, color: Colors.grey),
-                        fillColor: Colors.grey,
-                        focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(5.0),
-                          borderSide: BorderSide(
-                            color: Colors.grey,
-                          ),
+                  Container(
+                    decoration: BoxDecoration(
+                      border: Border.all(
+                        color: Colors.grey,
+                      ),
+                      borderRadius: BorderRadius.circular(5.0),
+                    ),
+                    child: Row(
+                      children: <Widget>[
+                        Checkbox(
+                          value: _checked,
+                          onChanged: onChanged,
+                          activeColor: appColor,
+                          checkColor: Colors.white,
                         ),
-                        enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(5.0),
-                          borderSide: BorderSide(
-                            color: Colors.grey,
-                            width: 1.0,
-                          ),
-                        ),
-                      )
+
+                        Text(strings.before, style: TextStyle(
+                            fontSize: 16.0
+                        ),),
+
+                      ],
+                    ),
                   ),
 
                   SizedBox(height: 10,),
 
-                  TextFormField(
-                      keyboardType: TextInputType.text,
-                      decoration: InputDecoration(
-                        hoverColor: Color.fromARGB(255, 21, 179, 244),
-                        focusColor: Color.fromARGB(255, 21, 179, 244),
-                        labelText: "During Food • D",
-                        contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-                        prefixIcon: Icon(Icons.check_circle, color: Color.fromARGB(255, 21, 179, 244),),
-                        fillColor: Color.fromARGB(255, 21, 179, 244),
-                        focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(5.0),
-                          borderSide: BorderSide(
-                            color: Color.fromARGB(255, 21, 179, 244),
-                          ),
+                  Container(
+                    decoration: BoxDecoration(
+                      border: Border.all(
+                        color: appColor,
+                      ),
+                      borderRadius: BorderRadius.circular(5.0),
+                    ),
+                    child: Row(
+                      children: <Widget>[
+                        Checkbox(
+                          value: _checked,
+                          onChanged: onChanged,
+                          activeColor: appColor,
+                          checkColor: Colors.white,
                         ),
-                        enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(5.0),
-                          borderSide: BorderSide(
-                            color: Color.fromARGB(255, 21, 179, 244),
-                            width: 1.0,
-                          ),
-                        ),
-                      )
+
+                        Text(strings.during, style: TextStyle(
+                            fontSize: 16.0
+                        ),),
+
+                      ],
+                    ),
                   ),
 
                   SizedBox(height: 10,),
 
-                  TextFormField(
-                      keyboardType: TextInputType.text,
-                      decoration: InputDecoration(
-                        hoverColor: Colors.grey,
-                        focusColor: Colors.grey,
-                        labelText: "After Food • A",
-                        contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-                        prefixIcon: Icon(Icons.radio_button_unchecked, color: Colors.grey),
-                        fillColor: Colors.grey,
-                        focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(5.0),
-                          borderSide: BorderSide(
-                            color: Colors.grey,
-                          ),
+                  Container(
+                    decoration: BoxDecoration(
+                      border: Border.all(
+                        color: Colors.grey,
+                      ),
+                      borderRadius: BorderRadius.circular(5.0),
+                    ),
+                    child: Row(
+                      children: <Widget>[
+                        Checkbox(
+                          value: _checked,
+                          onChanged: onChanged,
+                          activeColor: appColor,
+                          checkColor: Colors.white,
                         ),
-                        enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(5.0),
-                          borderSide: BorderSide(
-                            color: Colors.grey,
-                            width: 1.0,
-                          ),
-                        ),
-                      )
+
+                        Text(strings.after, style: TextStyle(
+                            fontSize: 16.0
+                        ),),
+
+                      ],
+                    ),
                   ),
 
                   //TODO Next > Hint
 
                   SizedBox(height: 20,),
 
-                  Text(
-                    'Hint', style: TextStyle(
+                  Text(strings.hint, style: TextStyle(
                       color: Colors.black, fontSize: 18, fontWeight: FontWeight.w600, height: 1.5
                   ),),
 
@@ -344,7 +342,7 @@ class _EditScreenState extends State<EditScreen> {
                       decoration: InputDecoration(
                         hoverColor: Colors.grey,
                         focusColor: Colors.grey,
-                        labelText: "Type here..(optional)",
+                        labelText: strings.type_here,
                         contentPadding: EdgeInsets.fromLTRB(20.0, 50.0, 20.0, 50.0),
 //                        prefixIcon: Icon(Icons.radio_button_unchecked, color: Colors.grey),
                         fillColor: Colors.grey,
@@ -368,21 +366,20 @@ class _EditScreenState extends State<EditScreen> {
 
                   SizedBox(height: 20,),
 
-                  Text(
-                    'Reminder for reorder', style: TextStyle(
+                  Text(strings.reorder_reminder_title, style: TextStyle(
                       color: Colors.black, fontSize: 18, fontWeight: FontWeight.w600, height: 1.5
                   ),),
 
                   SizedBox(height: 10,),
 
                   TextFormField(
-                      keyboardType: TextInputType.text,
+                      keyboardType: TextInputType.datetime,
                       decoration: InputDecoration(
                         hoverColor: Colors.grey,
                         focusColor: Colors.grey,
-                        labelText: "Select Date",
+                        labelText: strings.choose_date,
                         contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-                        prefixIcon: Icon(Icons.calendar_today, color: Colors.grey),
+                        prefixIcon: App_Icons.ic_calendar,
                         fillColor: Colors.grey,
                         focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(5.0),
@@ -402,48 +399,46 @@ class _EditScreenState extends State<EditScreen> {
 
                   SizedBox(height: 10,),
 
-                  TextFormField(
-                      keyboardType: TextInputType.text,
-                      decoration: InputDecoration(
-                        hoverColor: Colors.grey,
-                        focusColor: Colors.grey,
-                        labelText: "Select Interval",
-                        contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-                        prefixIcon: Icon(Icons.radio_button_checked, color: Colors.grey),
-                        fillColor: Colors.grey,
-                        focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(5.0),
-                          borderSide: BorderSide(
-                            color: Colors.grey,
-                          ),
+                  Container(
+                    decoration: BoxDecoration(
+                      border: Border.all(
+                        color: Colors.grey,
+                      ),
+                      borderRadius: BorderRadius.circular(5.0),
+                    ),
+                    child: Row(
+                      children: <Widget>[
+                        Checkbox(
+                          value: _checked,
+                          onChanged: onChanged,
+                          activeColor: appColor,
+                          checkColor: Colors.white,
                         ),
-                        enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(5.0),
-                          borderSide: BorderSide(
-                            color: Colors.grey,
-                            width: 1.0,
-                          ),
-                        ),
-                      )
+
+                        Text(strings.choose_interval, style: TextStyle(
+                            fontSize: 16.0
+                        ),),
+
+                      ],
+                    ),
                   ),
 
                   //TODO Next > Amount
 
                   SizedBox(height: 20,),
 
-                  Text(
-                    'Amount', style: TextStyle(
+                  Text(strings.amount_title, style: TextStyle(
                       color: Colors.black, fontSize: 18, fontWeight: FontWeight.w600, height: 1.5
                   ),),
 
                   SizedBox(height: 10,),
 
                   TextFormField(
-                      keyboardType: TextInputType.text,
+                      keyboardType: TextInputType.number,
                       decoration: InputDecoration(
                         hoverColor: Colors.grey,
                         focusColor: Colors.grey,
-                        labelText: "Enter Amount",
+                        labelText: strings.enter_amount,
                         contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
 //                        prefixIcon: Icon(Icons.calendar_today, color: Colors.grey),
                         fillColor: Colors.grey,

@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 class  AppColors
 {
   static Color themeColor = Color(0xFF15B3F4);
+  static Color card_Color = Color(0xFF7180F4);
 }
 
 class Resources
@@ -17,12 +18,14 @@ class Resources
 
 class App_Icons
 {
-  static const Icon ic_menu = Icon(Icons.menu, color: Colors.black26,);
-  static const Icon ic_edit = Icon(Icons.edit, color: Colors.black26,);
-  static const Icon ic_cross = Icon(Icons.clear, color: Colors.black26,);
+  static const Icon ic_menu = Icon(Icons.menu,);
+  static const Icon ic_edit = Icon(Icons.edit, color: Colors.black,);
+  static const Icon ic_cross = Icon(Icons.clear, color: Colors.white,);
   static const Icon ic_uncheck = Icon(Icons.radio_button_unchecked, color: Colors.black26,);
-  static const Icon ic_checked = Icon(Icons.check_circle);
+  static const Icon ic_checked_dull = Icon(Icons.check_circle, color: Colors.black26,);
   static const Icon ic_calendar = Icon(Icons.calendar_today, color: Colors.black26,);
+  static const Icon ic_add = Icon(Icons.add, color: Colors.grey,);
+
 
 }
 
@@ -31,10 +34,10 @@ class strings
   static const String goodMorning = "Good Morning";
   static const String stephen = "Stephen Hopkins";
   static const String points = "Points You Earned";
-  static const String fiftyUsd = "You have 50 USD Balance";
+  static const String fiftyUsd = "You have 60 USD Balance";
 
-  static const String bloodpressure = "It's time to measure your blood pressure";
-  static const String measureblood = "Two weeks gone by, Time to measure your blood.";
+  static const String bloodpressure = "It's time to measure your \nblood pressure";
+  static const String measureblood = "Two weeks gone by, Time \nto measure your blood.";
   static const String two = "02";
   static const String three = "03";
   static const String four = "04";
@@ -100,7 +103,6 @@ class strings
   static const String after = "After Food • A";
 
   //Hint
-  static const String hint_Title = "Hint";
   static const String type_here = "Type here...(optional)";
 
   //Reorder Reminder
